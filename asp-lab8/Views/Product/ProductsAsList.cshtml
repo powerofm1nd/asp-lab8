@@ -1,0 +1,17 @@
+﻿@using asp_lab8.Model
+@{
+    ViewData["Title"] = "Products as a list";
+    List<ProductModel> products = @Model;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Here is a list of your products: </h1>
+    
+    <ul class="list-unstyled">
+        @foreach (var product in products)
+        {
+            //ID. Name – Price$ (CreatedDate)
+            <li>@product.Id. @product.Name - @product.Price.ToString("C") (@product.CreatedDate.ToString("G"))</li>
+        }
+    </ul>
+</div>

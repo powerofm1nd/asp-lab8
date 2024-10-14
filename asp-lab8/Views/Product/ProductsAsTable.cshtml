@@ -1,0 +1,30 @@
+﻿@using asp_lab8.Model
+@{
+    ViewData["Title"] = "Products as a table";
+    List<ProductModel> products = @Model;
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Products as a Table</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Created Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("C")</td>
+                <td>@product.CreatedDate.ToString("G")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
